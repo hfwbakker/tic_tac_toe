@@ -5,8 +5,8 @@ class TicTacToe
   def initialize; end
 
   @@field = [['A1', 'A2', 'A3'],
-            ['B1', 'B2', 'B3'],
-            ['C1', 'C2', 'C3']]
+             ['B1', 'B2', 'B3'],
+             ['C1', 'C2', 'C3']]
 
   def change_value
     puts 'Give x coordinate'
@@ -25,49 +25,42 @@ class TicTacToe
       #{@@field[2][0]} | #{@@field[2][1]} | #{@@field[2][2]}
       "
   end
+
+  # def check_field
+
+  # end
 end
 
-# class for tic tac toe squares
-class Square
-  def initialize(coordinate)
-    @coordinate = coordinate
-  end
-
-  @empty = true
-  @is_x = false
-  @is_o = false
-
-  def take_choice(choice)
-    if empty == false
-      puts 'Invalid choice, square is already taken.'
-    end
-
-    if choice == 'X'
-      @is_x = true
-      @empty = false
-    elsif choice == 'O'
-      @is_o = true
-      @empty = false
-    end
-  end
-end
-
-#playa class
+# playa class
 class Player < TicTacToe
-  def change_it
-    @@field[0][1] = 'BANAAN'
+  def symbol(sym)
+    @sym = sym
+    puts @sym
   end
-  
-  # def did_i_win
-  #   check win conditions
-  #   if win, then win :)
 
+  def change_it
+    puts 'input x coordinate'
+    x = gets.chomp.to_i
+    puts 'input y coordinate'
+    y = gets.chomp.to_i
+    if @@field[x][y] == "X" || @@field[x][y] == "Y"
+      puts "field taken"
+    else
+      @@field[x][y] = @sym
+    end
+  end
 end
 
-player1 = Player.new
+playerX = Player.new
+playerX.symbol('X')
 
-player1.print_field
+playerO = Player.new
+playerO.symbol('O')
 
-player1.change_it
+playerX.print_field
 
-player1.print_field
+playerX.change_it
+
+playerX.print_field
+
+playerO.print_field

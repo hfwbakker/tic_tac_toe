@@ -1,6 +1,7 @@
 # COMMAND LINE TIC TAC TOE
 
-ASSIGNMENT
+ASSIGNMENT & RESOURCES
+https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-programming/lessons/tic-tac-toe
 * Build a tic-tac-toe game on the command line where two human players can play against each other and the board is 
 displayed in between turns.
 * Think about how you would set up the different elements within the game… What should be a class? Instance variable? 
@@ -13,6 +14,12 @@ NEXT UP:
 - player 1 function and player 2 function, player 1 calls player 2 at end of turn (class player?)
 
 LOG:
+--- Monday May 3rd ---
+Day three of working on Tic Tac Toe.
+- Deleted the former "field" class, and integrated some of its functionality in to TicTacToe class.
+- player class can now input an X or O respectively in a field
+- input is validated, so if ther is alreand an X or O player will get an error message.
+
 --- Thursday April 29th ---
 Day two of working on Tic Tac Toe. 
 - Created a class for "the game" called TicTacToe that keeps track of the play field through an array of arrays called @@field
