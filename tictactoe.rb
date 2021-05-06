@@ -8,15 +8,7 @@ class TicTacToe
              ['B1', 'B2', 'B3'],
              ['C1', 'C2', 'C3']]
 
-  def change_value
-    puts 'Give x coordinate'
-    @x = gets.chomp.to_i
-    puts 'give y coordinate'
-    @y = gets.chomp.to_i
-    print @@field[@x][@y]
-  end
-
-  def print_field
+  def self.print_field
     puts "
       #{@@field[0][0]} | #{@@field[0][1]} | #{@@field[0][2]}
       -- + -- + --
@@ -25,10 +17,6 @@ class TicTacToe
       #{@@field[2][0]} | #{@@field[2][1]} | #{@@field[2][2]}
       "
   end
-
-  # def check_field
-
-  # end
 end
 
 # playa class
@@ -38,29 +26,39 @@ class Player < TicTacToe
     puts @sym
   end
 
+  def switch_player
+    if @sym == 'X'
+      @@player_o.change_it
+    else
+      @@player_x.change_it
+    end
+  end
+
   def change_it
+    puts "Hello player #{@sym}"
     puts 'input x coordinate'
     x = gets.chomp.to_i
     puts 'input y coordinate'
     y = gets.chomp.to_i
     if @@field[x][y] == "X" || @@field[x][y] == "Y"
       puts "field taken"
+      if @sym == "X"
+        @@player_x.change_it
+      else
+        @@player_o.change_it
+      end
     else
       @@field[x][y] = @sym
     end
+    TicTacToe.print_field
+    switch_player
   end
 end
 
-playerX = Player.new
-playerX.symbol('X')
+@@player_x = Player.new
+@@player_x.symbol('X')
 
-playerO = Player.new
-playerO.symbol('O')
+@@player_o = Player.new
+@@player_o.symbol('O')
 
-playerX.print_field
-
-playerX.change_it
-
-playerX.print_field
-
-playerO.print_field
+@@player_x.change_it

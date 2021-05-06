@@ -10,29 +10,39 @@ Method? A few minutes of thought can save you from wasting an hour of coding.
 
 
 NEXT UP:
-- how to check for win conditions? refer to a hash?
-- player 1 function and player 2 function, player 1 calls player 2 at end of turn (class player?)
+- How to check for win conditions? Refer to a hash?
+- "Warning: class variable access from toplevel" -> relating to @@. Not sure yet how to fix that.
+- Overall fine tuning, output right now is a bit much and makes it a bit overwhelming. Can gets.chomp take two values? E.g. input x and y coordinates as [x, y] or something. Need to use an array perhaps?
+
 
 LOG:
+--- Thursday May 6th ---
+Day four of working on Tic Tac Toe, est 1.5 hours.
+- Loop now works, after calling "change_it", the other player gets called with the "switch_player" function.
+- Can call instance method from within another method by using @@variables, but it causes warning messages.
+- Cleaned up some excess code.
+- Turned print_field into a class method so it can be printed with "TicTacToe.print_field" instead of from an instance like "player_x.print_it".
+- Created test.rb in order to test some code ideas for this specific project.
+
 --- Monday May 3rd ---
 Day three of working on Tic Tac Toe.
 - Deleted the former "field" class, and integrated some of its functionality in to TicTacToe class.
-- player class can now input an X or O respectively in a field
-- input is validated, so if ther is alreand an X or O player will get an error message.
+- Player class can now input an X or O respectively in a field.
+- Input is validated, so if ther is alreand an X or O player will get an error message.
 
 --- Thursday April 29th ---
 Day two of working on Tic Tac Toe. 
 - Created a class for "the game" called TicTacToe that keeps track of the play field through an array of arrays called @@field
 - Player classes inherit from TicTacToe class and can make adjustments to @@field
-- might have to adjust the play field class, maybe integrate it to class TicTacToe
-- at the moment, TicTacToe.change_value allows players to select a field by giving integer values (0, 1, 2) for x, y values matching @@field coordinates
+- Might have to adjust the play field class, maybe integrate it to class TicTacToe
+- At the moment, TicTacToe.change_value allows players to select a field by giving integer values (0, 1, 2) for x, y values matching @@field coordinates
 
 --- Tuesday April 27th ---
 Day one of Tic Tac Toe.
 - Playing around, figuring stuff out
-- created a class for the play field, each square being an instance that takes orders
-- each square has three statuses: empty, X, or O
-- win conditions for reference:
+- Created a class for the play field, each square being an instance that takes orders
+- Each square has three statuses: empty, X, or O
+- Win conditions for reference:
         1: ([0][0], [0][1], [0][2])
         2: ([1][0], [1][1], [1][2])
         3: ([2][0], [2][1], [2][2])
