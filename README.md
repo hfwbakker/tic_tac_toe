@@ -10,12 +10,21 @@ Method? A few minutes of thought can save you from wasting an hour of coding.
 
 
 NEXT UP:
-- How to check for win conditions? Refer to a hash?
 - "Warning: class variable access from toplevel" -> relating to @@. Not sure yet how to fix that.
+- When i use @ instead of @@ for the above stuff work but the value in case returns blank. Is attribute accessor the key? Do I need to set it to read and write or something?
 - Overall fine tuning, output right now is a bit much and makes it a bit overwhelming. Can gets.chomp take two values? E.g. input x and y coordinates as [x, y] or something. Need to use an array perhaps?
+- How to check for win conditions? Refer to a hash?
+- Change if statements to case-whens
 
 
 LOG:
+--- Sunday May 9th ---
+Day five of working on Tic Taco Toe.
+- Coordinate input is being validated. Coordinates above 2 or below 0 get an error message and a redo.
+- Main game functionality works. However still no win conditions.
+- Tried to figure out the "class variable access from top level" complaint as well as the "Replace class var @@field with a class instance var." rubocop complaint. Maybe should just ignore it.
+
+
 --- Thursday May 6th ---
 Day four of working on Tic Tac Toe, est 1.5 hours.
 - Loop now works, after calling "change_it", the other player gets called with the "switch_player" function.

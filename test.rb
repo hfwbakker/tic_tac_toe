@@ -2,24 +2,35 @@ class Testing
   def initialize(word)
     @word = word
   end
+
+  @@field = 'darp'
+
+  def print_word
+    puts "#{@word}"
+  end
+
+  def print_field
+    puts "#{@@field}"
+  end
+
+  def edit_field
+    @@field = "prol"
+  end
+
 end
 
 class SubTest < Testing
-  def print_it
-    puts "da word = #{@word}"
-    if @word == "koek"
-      puts "haha het is echt koek"
-      @@test2.print_it
-    elsif @word == "ei"
-      puts "ei ei ben niet blij"
-      @@test1.print_it
-    end
-  end
+
 end
 
-@@test1 = SubTest.new("koek")
-@@test2 = SubTest.new("ei")
+test_field = [[1, 2, 3],
+              [4, 5, 6],
+              [8, 9, 10]]
 
-@@test1.print_it
-# test2.print_it
+henri = Testing.new(test_field)
 
+henri.print_field
+
+deja = SubTest.new("Boem")
+
+deja.print_field
