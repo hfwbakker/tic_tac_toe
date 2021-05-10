@@ -8,18 +8,27 @@ displayed in between turns.
 Method? A few minutes of thought can save you from wasting an hour of coding.
 * Build your game, taking care to not share information between classes any more than you have to.
 
+* Resource on win conditions https://stackoverflow.com/questions/40906015/tic-tac-toe-checking-to-see-if-a-player-has-won
+
 
 NEXT UP:
-- "Warning: class variable access from toplevel" -> relating to @@. Not sure yet how to fix that.
-- When i use @ instead of @@ for the above stuff work but the value in case returns blank. Is attribute accessor the key? Do I need to set it to read and write or something?
 - Overall fine tuning, output right now is a bit much and makes it a bit overwhelming. Can gets.chomp take two values? E.g. input x and y coordinates as [x, y] or something. Need to use an array perhaps?
-- How to check for win conditions? Refer to a hash?
 - Change if statements to case-whens
+- When i use @ instead of @@ for the above stuff work but the value in case returns blank. Is attribute accessor the key? Do I need to set it to read and write or something? 
+- Check the sources listed above, stackoverflow link might have some ideas. 
+- Need to test calling initalize in TicTacToe class.
+
 
 
 LOG:
+--- Monday May 10th ---
+Day six of working on Tic Tac Toe.
+- Basic game logic now complete. Win condition works.
+- Still not sure how to deal with the top level access error, but deactivated the error message for now with "$VERBOSE = nil".
+- Win condition source contains some useful info, perhaps need to call initialize on TicTacToe class to make variables available as @ and not @@?
+
 --- Sunday May 9th ---
-Day five of working on Tic Taco Toe.
+Day five of working on Tic Tac Toe.
 - Coordinate input is being validated. Coordinates above 2 or below 0 get an error message and a redo.
 - Main game functionality works. However still no win conditions.
 - Tried to figure out the "class variable access from top level" complaint as well as the "Replace class var @@field with a class instance var." rubocop complaint. Maybe should just ignore it.

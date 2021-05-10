@@ -1,5 +1,5 @@
 # COMMAND LINE TIC TAC TOE
-
+$VERBOSE = nil
 # class fur das spiel
 class TicTacToe
   # def initialize; end
@@ -7,16 +7,16 @@ class TicTacToe
     attr_accessor :field
   end
 
-  @@field = [['A1', 'A2', 'A3'],
-            ['B1', 'B2', 'B3'],
-            ['C1', 'C2', 'C3']]
+  @@field = [['1', '2', '3'],
+             ['4', '5', '6'],
+             ['7', '8', '9']]
 
   def self.print_field
     puts "
       #{@@field[0][0]} | #{@@field[0][1]} | #{@@field[0][2]}
-      -- + -- + --
+      - + - + -
       #{@@field[1][0]} | #{@@field[1][1]} | #{@@field[1][2]}
-      -- + -- + --
+      - + - + -
       #{@@field[2][0]} | #{@@field[2][1]} | #{@@field[2][2]}
       "
   end
@@ -46,6 +46,22 @@ class Player < TicTacToe
     end
   end
 
+  def check_for_win
+    if @@field[0][0] == @@field[0][1] && @@field[0][0] == @@field[0][2] ||
+       @@field[1][0] == @@field[1][1] && @@field[1][0] == @@field[1][2] ||
+       @@field[2][0] == @@field[2][1] && @@field[2][0] == @@field[2][2] ||
+ 
+       @@field[0][0] == @@field[1][0] && @@field[0][0] == @@field[2][0] ||
+       @@field[0][1] == @@field[1][1] && @@field[0][1] == @@field[2][1] ||
+       @@field[0][2] == @@field[1][2] && @@field[0][2] == @@field[2][2] ||
+ 
+       @@field[0][0] == @@field[1][1] && @@field[0][0] == @@field[2][2] ||
+       @@field[2][2] == @@field[1][1] && @@field[2][2] == @@field[0][0]
+      puts "PLAYER #{@sym} WINS!"
+      exit!
+    end
+  end
+
   def change_it
     puts "Player #{@sym} turn"
     puts 'input x coordinate'
@@ -71,6 +87,7 @@ class Player < TicTacToe
       @@field[x][y] = @sym
     end
     TicTacToe.print_field
+    check_for_win
     switch_player
   end
 end
